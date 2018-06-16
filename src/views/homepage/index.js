@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom';
 import api from 'root/api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Grid, Column, Icon } from 'semantic-ui-react';
-import { Input, Button } from 'semantic-ui-react'
+import { Input, Button, Image } from 'semantic-ui-react'
 import KYCValidations from '../../../src/contracts/build/KYCValidations.json';
-
+import logo from '../../common/images/BlocKey.png';
 
 import "./index.scss";
 
@@ -66,8 +66,8 @@ class TradesView extends Component {
         <Grid columns={2}>
           <Grid.Row>
             <Grid.Column width={8} mobile={16}>
-              <h1 className="header">Blockey</h1>
               <div className="box main-box">
+              <Image src={logo} />
                 <p>Enter your wallet address and your personal data, to assign this wallet to your identity.</p>
                 <br/>
                 <div className="main-form">
