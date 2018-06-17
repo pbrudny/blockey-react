@@ -93,6 +93,10 @@ class Api {
     console.log('data', data);
     return this.getInstance().post('/kyc', data);
   };
+
+  loginPSD2Bank = (data) => {
+    return this.getInstance().post('/psd2/my/logins/direct', data);
+  };
 }
 
 const api = new Api();

@@ -16,7 +16,9 @@ class TradesView extends Component {
     first_name: 'John',
     last_name: 'Doe',
     email: 'john.doe@gmail.com',
-    identificationNumber: '84010902434'
+    identificationNumber: '84010902434',
+    token: '',
+    message: ''
   };
 
   componentDidMount() {
@@ -32,31 +34,46 @@ class TradesView extends Component {
         });
 
       if(window.web3.eth.accounts.length > 0) {
-        this.setState({'wallet': window.web3.eth.accounts[0]});
+        // this.setState({'wallet': window.web3.eth.accounts[0]});
       }
     } else {
       alert('Launch MetaMask!');
     }
   }
 
+  bankLogin = () => {
+
+    this.setState({message: 'Fetching your bank token.'});
+    setTimeout(()=> {
+      this.setState({message: 'Token ready. Submit your data for review'})
+    }, 5000);
+    api.loginPSD2Bank().then((res) => {
+      const token = res.data.token;
+
+      this.setState({token});
+    });
+  }
   submit = () => {
 
-      //this.state.wallet
+    this.setState({message: 'Data submitted. Please wait for verification...'});
     const hash = window.web3.sha3(
       this.state.first_name + this.state.last_name + this.state.email + this.state.identificationNumber
     );
 
-    console.log('hash', hash);
-
-
     const data = {
-      'token': 'xxx',
+      'token': this.state.token,
       'hashed_data': hash,
       'wallet': this.state.wallet
-    }
+    };
 
-    api.ValidatePost(data).then(() => {
-
+    api.ValidatePost(data).then((res) => {
+      console.log('res',res.data.result);
+      if(res.data.result === "Yes") {
+        this.setState({message: 'Data verified by bank. Please confirm your wallet by sending MetaMask transaction'});
+      }
+      if(res.data.result === "No") {
+        this.setState({message: 'Data not verified by your bank. Your data may differ.'});
+      }
     });
   };
 
@@ -71,14 +88,19 @@ class TradesView extends Component {
                 <p>Enter your wallet address and your personal data, to assign this wallet to your identity.</p>
                 <br/>
                 <div className="main-form">
-                  <Input placeholder='Eth wallet address (0x...)' value={this.state.wallet} /><br/>
+                  <Input placeholder='Eth wallet address (0x...)'  /><br/>
                   <Input placeholder='First name' value={this.state.first_name} /><br/>
                   <Input placeholder='Last name' value={this.state.last_name} /><br/>
                   <Input placeholder='Email' value={this.state.email} /><br/>
                   <Input placeholder='Identification number' value={this.state.identificationNumber} /><br/>
-
+                  {
+                    this.state.message && <div className="messagebox">{this.state.message}</div>
+                  }
                   <div className="actions">
                     <Button className="submit-button" onClick={this.submit}>Submit</Button>
+                  </div>
+                  <div className="actions">
+                    <Button className="submit-button" onClick={this.bankLogin}>Bank login</Button>
                   </div>
                 </div>
                 <br/>
