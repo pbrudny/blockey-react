@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import api from 'root/api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Grid, Column, Icon } from 'semantic-ui-react';
-import { Input, Button, Image } from 'semantic-ui-react'
+import { Input, Button, Image, Menu } from 'semantic-ui-react'
 import KYCValidations from '../../../src/contracts/build/KYCValidations.json';
 import logo from '../../common/images/BlocKey.png';
 
@@ -80,6 +80,23 @@ class TradesView extends Component {
   render() {
     return (
       <div className="homepage-content">
+        <Menu>
+          <Menu.Item>
+            <a href="https://github.com/pbrudny/blockey" target="_blank">
+             Source code
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="https://github.com/pbrudny/blockey" target="_blank">
+             How does it work
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="https://github.com/pbrudny/blockey" target="_blank">
+             Team
+            </a>
+          </Menu.Item>
+        </Menu>
         <Grid columns={2}>
           <Grid.Row>
             <Grid.Column width={8} mobile={16}>
