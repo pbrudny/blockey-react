@@ -14,3 +14,5 @@ http://github.com/pbrudny/blockey
 yarn install
 yarn start
 ```
+* running on localhost:3000
+
