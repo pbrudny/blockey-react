@@ -87,12 +87,12 @@ class TradesView extends Component {
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a href="https://github.com/pbrudny/blockey" target="_blank">
+            <a href="https://github.com/pbrudny/blockey-react#architecture" target="_blank">
              How does it work
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a href="https://github.com/pbrudny/blockey" target="_blank">
+            <a href="https://github.com/pbrudny/blockey-react#contributors" target="_blank">
              Team
             </a>
           </Menu.Item>

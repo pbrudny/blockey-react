@@ -19,3 +19,11 @@ yarn start
 ```
 * running on http://localhost:3000
 
+## Contributors
+[Jakub Włodarczyk](https://github.com/fenris85)
+[Bartłomiej Rutkowski](https://github.com/anze1m)
+[Piotr Brudny](https://github.com/pbrudny)
+[Justyna Broniszewska]
+[Łukasz Misiak]
+[Piotr Sobczak]
+
