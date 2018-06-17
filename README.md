@@ -1,3 +1,6 @@
+
+<img width="255" alt="blockey" src="https://user-images.githubusercontent.com/29052/41507562-d2d348da-7234-11e8-8fdc-4b31f7f18e94.png">
+
 # Blockey
 KYC easy way
 
