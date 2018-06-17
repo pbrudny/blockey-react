@@ -26,7 +26,7 @@ yarn start
 * [Jakub Włodarczyk](https://github.com/fenris85)
 * [Bartłomiej Rutkowski](https://github.com/anze1m)
 * [Piotr Brudny](https://github.com/pbrudny)
-* [Justyna Broniszewska](https://github.com/justynabraniszewska)
+* [Justyna Broniszewska](https://github.com/justynabroniszewska)
 * [Łukasz Misiak]()
 * [Piotr Sobczak]()
 
