@@ -36,3 +36,5 @@ yarn start
 * [Łukasz Misiak]()
 * [Piotr Sobczak]()
 
+## License
+Blockey is released under the MIT License.
